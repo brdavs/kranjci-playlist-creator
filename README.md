@@ -1,0 +1,3 @@
+# Kranjci playlist creator
+
+To be written at some time in the future...

@@ -1,0 +1,25 @@
+{
+  "name": "kranjci-playlist-creator",
+  "main": "index.js",
+  "version": "0.0.1",
+  "authors": [
+    "Toni Anzlovar <toni@formalibre.si>"
+  ],
+  "description": "Player app",
+  "license": "ISC",
+  "homepage": "www.kranjci.si",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "./src/bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular": "~1.5.5",
+    "lazy.js": "^0.4.2",
+    "pure": "^0.6.0",
+    "font-awesome": "fontawesome#^4.6.1"
+  }
+}

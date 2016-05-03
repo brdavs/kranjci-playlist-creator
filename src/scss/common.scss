@@ -1,0 +1,113 @@
+// -----------------------------------------------------------------------------
+// Common theme preset | http://soxer.mutsu.org
+// Copyright 2010 Toni Anzlovar, toni[at]formalibre.si
+// -----------------------------------------------------------------------------
+
+// SUGAR
+//-----------------------------------------------------------------------------
+// $h = horizontal position
+// $v = vertical position
+// $r = radius
+@mixin corner($h, $v, $r) {
+  -moz-border-radius-#{$v}#{$h}: $r + px;
+  -webkit-border-#{$v}-#{$h}-radius: $r + px;
+  border-#{$v}-#{$h}-radius: $r + px;
+}
+
+@mixin corners($r) {
+  -moz-border-radius: $r + px;
+  -webkit-border-radius: $r + px;
+  border-radius: $r + px;
+}
+
+@mixin lgr($x) {
+  background-image: -webkit-linear-gradient($x);
+  background-image: -moz-linear-gradient($x);
+  background-image: -ms-linear-gradient($x);
+  background-image: -o-linear-gradient($x);
+}
+
+@mixin sh($sh) {
+  box-shadow: $sh;
+  -webkit-box-shadow: $sh;
+  -moz-box-shadow: $sh;
+}
+
+@mixin calc($x, $y) {
+  @if $x == width {
+    width: calc(#{$y});
+    width: -webkit-calc(#{$y});
+    width: -moz-calc(#{$y});
+    width: -o-calc(#{$y});
+  }
+  @if $x == height {
+    height: calc(#{$y});
+    height: -webkit-calc(#{$y});
+    height: -moz-calc(#{$y});
+    height: -o-calc(#{$y});
+  }
+}
+
+@mixin transition($x) {
+  transition: $x;
+  -webkit-transition: $x;
+  -moz-transition: $x;
+  -o-transition: $x;
+}
+
+@mixin noselect {
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+@mixin n {
+  margin: 0 0 0 0;
+  padding: 0 0 0 0;
+}
+
+@mixin cu {
+  @include n;
+  list-style: none;
+}
+
+@mixin cl {
+  float: left;
+  @include n;
+  list-style: none;
+  list-style-image: none;
+  list-style-type: none;
+}
+
+@mixin center {
+  margin: {
+    left: auto;
+    right: auto;
+  };
+}
+
+@mixin clear {
+  content: ".";
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden;
+}
+
+@mixin cover {
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
+@mixin noselect {
+  user-select: none;
+  -o-user-select: none;
+  -moz-user-select: none;
+  -khtml-user-select: none;
+  -webkit-user-select: none;
+}

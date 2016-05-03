@@ -1,0 +1,54 @@
+/* -----------------------------------------------------------------------------
+ * SASS Theme for Ognjisce media player
+ * Copyright 2016 Toni Anzlovar, toni[at]formalibre.si
+ * ----------------------------------------------------------------------------- */
+body {
+  margin: 0 0 0 0;
+  padding: 0 0 0 0; }
+
+* {
+  font-family: arial; }
+
+.hidden {
+  display: none; }
+
+.link {
+  cursor: pointer; }
+
+a {
+  cursor: pointer;
+  transition: 0.8s;
+  -webkit-transition: 0.8s;
+  -moz-transition: 0.8s;
+  -o-transition: 0.8s; }
+  a:hover {
+    text-decoration: none;
+    transition: 0.2s;
+    -webkit-transition: 0.2s;
+    -moz-transition: 0.2s;
+    -o-transition: 0.2s; }
+
+.k-list {
+  list-style: none;
+  margin: 0 0 0 0;
+  padding: 0 0 0 0;
+  border-right: 1px solid grey; }
+  .k-list ul {
+    border: none; }
+  .k-list li span {
+    display: block;
+    padding: 1rem;
+    border-bottom: 1px solid grey;
+    border-left: 1px solid grey; }
+  .k-list li li span {
+    padding-left: 3rem; }
+  .k-list li li li span {
+    padding-left: 5rem; }
+  .k-list li li li li span {
+    padding-left: 7rem; }
+  .k-list li li li li li span {
+    padding-left: 9rem; }
+  .k-list li li li li li li span {
+    padding-left: 11rem; }
+  .k-list li li li li li li li span {
+    padding-left: 13rem; }
