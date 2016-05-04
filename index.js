@@ -6,8 +6,8 @@ var fs = require('fs');
 var app = connect();
 var p = [8000, 8001, 8002];
 
-var mp3path = '/home/toni/codez/kranjci-miki-dj/mp3';
-var playlist_path = '/home/toni/codez/kranjci-miki-dj/mp3/playlist.m3u';
+var mp3path = __dirname + '/mp3';
+var playlist_path = __dirname + '/mp3/playlist.m3u';
 
 /*
  * Services

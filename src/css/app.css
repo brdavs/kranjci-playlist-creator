@@ -2,12 +2,13 @@
  * SASS Theme for Ognjisce media player
  * Copyright 2016 Toni Anzlovar, toni[at]formalibre.si
  * ----------------------------------------------------------------------------- */
+/* Coolors Exported Palette - coolors.co/2d3142-4f5d75-bfc0c0-ffffff-ef8354 */
+html, button, input, select, textarea, .pure-g [class*="pure-u"] {
+  font-family: Verdana, Geneva, Tahoma, sans-serif; }
+
 body {
   margin: 0 0 0 0;
   padding: 0 0 0 0; }
-
-* {
-  font-family: arial; }
 
 .hidden {
   display: none; }
@@ -30,25 +31,18 @@ a {
 
 .k-list {
   list-style: none;
+  color: #ffffff;
+  background-color: #4f5d75;
   margin: 0 0 0 0;
-  padding: 0 0 0 0;
-  border-right: 1px solid grey; }
+  padding: 0 0 0 0; }
   .k-list ul {
+    list-style: none;
+    margin: 0 0 0 0;
+    padding: 0 0 0 0;
     border: none; }
   .k-list li span {
     display: block;
-    padding: 1rem;
-    border-bottom: 1px solid grey;
-    border-left: 1px solid grey; }
-  .k-list li li span {
-    padding-left: 3rem; }
-  .k-list li li li span {
-    padding-left: 5rem; }
-  .k-list li li li li span {
-    padding-left: 7rem; }
-  .k-list li li li li li span {
-    padding-left: 9rem; }
-  .k-list li li li li li li span {
-    padding-left: 11rem; }
-  .k-list li li li li li li li span {
-    padding-left: 13rem; }
+    padding: 1rem; }
+  .k-list li li {
+    padding-left: 1em;
+    background-color: rgba(255, 255, 255, 0.1); }

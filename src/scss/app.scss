@@ -2,16 +2,16 @@
  * SASS Theme for Ognjisce media player
  * Copyright 2016 Toni Anzlovar, toni[at]formalibre.si
  * ----------------------------------------------------------------------------- */
-
+@import "../bower_components/bourbon/app/assets/stylesheets/bourbon";
 @import "common";
+@import "defaults";
+
+
 
 body {
   @include n;
 }
 
-* {
-  font-family: arial;
-}
 
 .hidden {
   display: none;
@@ -33,23 +33,25 @@ a {
 
 .k-list {
   list-style: none;
+  color: $color4;
+  background-color: $color2;
   @include n;
-  border-right: 1px solid grey;
   ul {
+    list-style: none;
+    @include n; 
     border: none;
   }
+  
+  $indent: 1em;
   li {
     span {
       display: block;
-      padding:1rem;
-      border-bottom: 1px solid grey;
-      border-left: 1px solid grey;
+      padding: 1rem;
     }
-    li span {  padding-left: 3rem }
-    li li span {  padding-left: 5rem }
-    li li li span {  padding-left: 7rem }
-    li li li li span {  padding-left: 9rem }
-    li li li li li span {  padding-left: 11rem }
-    li li li li li li span {  padding-left: 13rem }
+    li {
+      padding-left: 1*$indent;
+      background-color: rgba(255,255,255,0.1);
+    }
+
   }
 }
