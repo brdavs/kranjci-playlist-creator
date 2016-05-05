@@ -29,6 +29,10 @@ a {
     -moz-transition: 0.2s;
     -o-transition: 0.2s; }
 
+#header {
+  height: 80px;
+  background-color: #4f5d75; }
+
 .k-list {
   list-style: none;
   color: #ffffff;
@@ -40,9 +44,32 @@ a {
     margin: 0 0 0 0;
     padding: 0 0 0 0;
     border: none; }
-  .k-list li span {
-    display: block;
-    padding: 1rem; }
-  .k-list li li {
-    padding-left: 1em;
-    background-color: rgba(255, 255, 255, 0.1); }
+  .k-list li {
+    border-top: 1px solid rgba(0, 0, 0, 0.15); }
+    .k-list li > span {
+      display: block;
+      font-size: 1.2rem;
+      padding: 0.8rem; }
+      .k-list li > span span {
+        color: #ef8354; }
+        .k-list li > span span.name {
+          color: #ffffff; }
+        .k-list li > span span.arrow {
+          float: right;
+          padding-top: 0.25rem; }
+    .k-list li li {
+      padding-left: 1em;
+      background-color: rgba(255, 255, 255, 0.15); }
+
+.k-songs {
+  margin: 0 0 0 0;
+  padding: 0 0 0 0;
+  list-style: none; }
+  .k-songs li {
+    border-top: 1px solid rgba(0, 0, 0, 0.15); }
+    .k-songs li > span {
+      display: block;
+      font-size: 1.2rem;
+      padding: 0.8rem; }
+      .k-songs li > span .ok {
+        color: #ef8354; }

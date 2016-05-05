@@ -1,22 +1,28 @@
 <script type="text/ng-template" id="ul.html" ng-init="items=item.children">
-
-    <li class="link" ng-repeat="item in items" ng-if="item.children">
-        <span class="fa fa-folder-o" ng-click="chdir(item)">&nbsp;&nbsp; {{item.name}}</span>
-        <ul ng-include="'ul.html'" ng-init="items=item.children"></ul>
+    <li class="link" ng-repeat="item in items track by $index" ng-if="item.children">
+        <span ng-click="chdir(item)" class="link menu-link">
+             <span class="folder fa fa-folder-o"></span>
+             &nbsp; <span class="name">{{item.name}}</span>
+             <span class="arrow fa""></span>
+        </span>
+        <ul ng-include="'ul.html'" ng-init="items=item.children; level=level+1" Xng-class="level>0 ? 'hidden' : ''" class="hidden"></ul>
     </li>
-
 </script>
 
 
 <div class="pure-g">
     <div class="pure-u-1-3 pure-u-md-1-2">
-        <ul class="k-list" ng-include="'ul.html'" ng-init="items=list.children"></ul>
+        <ul class="k-list" ng-include="'ul.html'" ng-init="items=list.children; level=0"></ul>
     </div>
     <div class="pure-u-2-3  pure-u-md-1-2">
         
-        <ul>
-            <li class="link" ng-repeat="item in current_items" ng-if="!item.children" ng-click="select(item)">
-                {{item.name}}
+        <ul class="k-songs">
+            <li class="link song-link" ng-repeat="item in current_items" ng-if="!item.children" ng-click="select(item)">
+                <span class="link">
+                    <span>{{only_name(item.name)}}</span>
+                    &nbsp;
+                    <span class="ok fa" ng-class="playlist.indexOf(item.path)>-1 ? 'fa-check-circle' : ''"></span>
+                </span>
             </li>
         </ul>
         

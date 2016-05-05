@@ -29,7 +29,12 @@ a {
     @include transition(0.2s);
   }
 }
+// ---------------------------------------------------
 
+#header {
+  height: 80px;
+  background-color: $color2;
+}
 
 .k-list {
   list-style: none;
@@ -44,14 +49,45 @@ a {
   
   $indent: 1em;
   li {
-    span {
+    border-top: 1px solid rgba(0,0,0,0.15);
+    > span {
       display: block;
-      padding: 1rem;
+      font-size: 1.2rem;
+      padding: 0.8rem;
+      span {
+        color: $color5;
+        &.name {
+          color: $color4;
+        }
+        &.arrow {
+          float: right;
+          padding-top: 0.25rem;
+        }
+      }
     }
     li {
       padding-left: 1*$indent;
-      background-color: rgba(255,255,255,0.1);
+      background-color: rgba(255,255,255,0.15);
     }
 
+  }
+}
+
+
+
+.k-songs {
+  @include n;
+  list-style: none;
+  li {
+    border-top: 1px solid rgba(0,0,0,0.15);
+    > span {
+      display: block;
+      font-size: 1.2rem;
+      padding: 0.8rem;
+      
+      .ok {
+        color: $color5;
+      }
+    }
   }
 }
