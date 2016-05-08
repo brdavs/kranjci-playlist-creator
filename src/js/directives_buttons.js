@@ -19,7 +19,7 @@
             controller: ControllerController,
             controllerAs: 'vm',
             link: link,
-            restrict: 'C',
+            restrict: 'A',
             scope: {
             }
         };

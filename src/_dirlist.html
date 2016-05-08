@@ -1,6 +1,6 @@
 <script type="text/ng-template" id="ul.html" ng-init="items=item.children">
-    <li class="link" ng-repeat="item in items track by $index" ng-if="item.children">
-        <span ng-click="chdir(item)" class="link menu-link">
+    <li ng-repeat="item in items track by $index" ng-if="item.children">
+        <span ng-click="chdir(item)" class="link menu-link" menu-link>
              <span class="folder fa fa-folder-o"></span>
              &nbsp; <span class="name">{{item.name}}</span>
              <span class="arrow fa""></span>
@@ -19,7 +19,7 @@
         <ul class="k-songs">
             <li class="link song-link" ng-repeat="item in current_items" ng-if="!item.children" ng-click="select(item)">
                 <span class="link">
-                    <span>{{only_name(item.name)}}</span>
+                    <span>{{extract(item.name).singer}}</span>: <span>{{extract(item.name).song}}</span>
                     &nbsp;
                     <span class="ok fa" ng-class="playlist.indexOf(item.path)>-1 ? 'fa-check-circle' : ''"></span>
                 </span>

@@ -33,16 +33,26 @@ app.use('/list', list);
 var playlist = (req, res, next) => {
     
     // If we get a wrong method, we just return 405 and exit.
-    if (['POST', 'OPTIONS'].indexOf(req.method) == -1) {
+    if (['GET', 'POST', 'OPTIONS', 'DELETE'].indexOf(req.method) == -1) {
         res.writeHead(405, {'Content-Type': 'text/plain'});
-        res.end('You can only POST to this resource!');
+        res.end('You can not use ' + req.method + ' to this resource!');
         next();
         return;
     }
-
+    
     // Fill up the playlist with data recieved
     playlist = ''; req.on('data', (data) => { playlist += data; });
     
+    // get playlist function
+    var get_playlist = () => {
+        fs.exists(playlist_path, (exists) => {
+            var out = exists ? fs.readFileSync(playlist_path) : '';
+            res.end(out);
+            next();
+        });
+    }
+    if(req.method == 'GET') req.on('end', get_playlist);
+       
     // Save playlist function
     var save_playlist = () => {
         fs.exists(playlist_path, (exists) => {
@@ -55,13 +65,24 @@ var playlist = (req, res, next) => {
             next();
         });
     };
+    if(req.method == 'POST') req.on('end', save_playlist);
+
+    // Delete playlist
+    var delete_playlist = () => {
+        fs.exists(playlist_path, (exists) => {
+            var out = exists ? {response: true} : {response: false};
+            if (exists) fs.unlinkSync(playlist_path);
+            res.end(JSON.stringify(out));
+            next();
+        });
+    }
+    if (req.method == 'DELETE') delete_playlist();
     
+    // Respond to OPTIONS
     if(req.method == 'OPTIONS') {
         res.end('');
         next();
     }
-    
-    if(req.method == 'POST') req.on('end', save_playlist);
 };
 app.use('/playlist', playlist);
 app.listen(p[0]);

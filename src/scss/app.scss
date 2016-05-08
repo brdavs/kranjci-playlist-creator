@@ -29,17 +29,58 @@ a {
     @include transition(0.2s);
   }
 }
-// ---------------------------------------------------
+
+// 100% height hack ------------------------------------------------------------
+
+body { height: 90vh; }
+.dirlist { 
+  height: 100%; 
+  .pure-g {
+    height: 100%;
+    div:first-child, div:last-child {
+      height: 100%;
+      overflow-y : scroll;
+      overflow-x : hidden;
+    }
+  }
+}
+
+// -----------------------------------------------------------------------------
 
 #header {
-  height: 80px;
-  background-color: $color2;
+  position: relative;
+  vertical-align: middle;
+  height: 10vh;
+  background-color: $color4;
+  background-image: url('/img/kranjci-logo.svg');
+  background-position: 1em 70%;
+  background-repeat: no-repeat;
+  box-shadow: 0 5px 30px rgba(0,0,0,0.1);
+  z-index: 1;
+  form {
+    display: inline-block;
+    float: right;
+    padding: 1rem 1rem 0 0;
+  }
+}
+
+
+.dirlist .pure-g div:first-child,  {
+  box-sizing: border-box;
+  border-right: 1px solid rgba(255,255,255,0.15);
+}
+.dirlist {
+  background-image: url('/img/dj.jpg');
+  background-size: 100%;
+  background-position: left bottom;
+  background-repeat: no-repeat;
 }
 
 .k-list {
   list-style: none;
   color: $color4;
-  background-color: $color2;
+  // background-color: $color2;
+  
   @include n;
   ul {
     list-style: none;
@@ -49,7 +90,7 @@ a {
   
   $indent: 1em;
   li {
-    border-top: 1px solid rgba(0,0,0,0.15);
+    border-top: 1px solid rgba(255,255,255,.15);
     > span {
       display: block;
       font-size: 1.2rem;
@@ -66,16 +107,18 @@ a {
       }
     }
     li {
-      padding-left: 1*$indent;
-      background-color: rgba(255,255,255,0.15);
+      padding-left: 2*$indent;
     }
-
+  }
+  > li {
+    border-bottom: 1px solid rgba(255,255,255,.15);
   }
 }
 
 
 
 .k-songs {
+  color: $color4;
   @include n;
   list-style: none;
   li {
