@@ -31,22 +31,7 @@
         return directive;
         
         
-        // Search function
-        function search_list(list, text) {
-            alert('asd')
-            var re = new RegExp(text + "gi");
-            var traverse = function (list, out) {
-                angular.forEach(list.children, function(item) {
-                    if (item.children) { 
-                        traverse(item); 
-                    } else {
-                        if (item.name.match(re).length) out.push(item);
-                    }
-                });
-                return out;
-            }
-            console.log( traverse(list, []).sort() );
-        }
+
         
         // link function
         function link(scope, element, attrs) {
@@ -73,7 +58,7 @@
             }
             
             // Search list
-            scope.search_list = function() { alert('asdsadsa');};
+            //scope.search_list = search_list;
 
             scope.chdir = function (item) {
                 scope.current_items = item.children;

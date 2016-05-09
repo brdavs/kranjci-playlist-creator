@@ -30,12 +30,12 @@ a {
     -o-transition: 0.2s; }
 
 body {
-  height: 90vh; }
+  height: 100vh; }
 
 .dirlist {
   height: 100%; }
   .dirlist .pure-g {
-    height: 100%; }
+    height: 90%; }
     .dirlist .pure-g div:first-child, .dirlist .pure-g div:last-child {
       height: 100%;
       overflow-y: scroll;
@@ -62,8 +62,8 @@ body {
 
 .dirlist {
   background-image: url("/img/dj.jpg");
-  background-size: 100%;
-  background-position: left bottom;
+  background-size: auto 100%;
+  background-position: center bottom;
   background-repeat: no-repeat; }
 
 .k-list {

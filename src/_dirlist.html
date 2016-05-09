@@ -1,3 +1,5 @@
+<div ng-include="'_header.html'"></div>
+
 <script type="text/ng-template" id="ul.html" ng-init="items=item.children">
     <li ng-repeat="item in items track by $index" ng-if="item.children">
         <span ng-click="chdir(item)" class="link menu-link" menu-link>
