@@ -18,7 +18,8 @@ var dest_dir = './dist/';
  */
 gulp.task('sass-compile', function() {
     gulp.src([
-        dev_dir+'scss/app.scss'
+        dev_dir+'scss/app.scss',
+        dev_dir+'scss/admin.scss',
     ])
     .pipe(sass().on('error', sass.logError))
     .pipe(gulp.dest(dev_dir+'css/'));
@@ -34,6 +35,7 @@ gulp.task('sass-watch',function() {
 gulp.task('rsync-media', function() {
     return gulp.src([
             dev_dir+'media/**',
+            dev_dir+'img/**',
         ])
         .pipe(rsync({
             incremental: true,
@@ -43,18 +45,6 @@ gulp.task('rsync-media', function() {
         }));
 });
 
-gulp.task('rsync-jplayer-skin', function() {
-    return gulp.src([
-            dev_dir+'bower_components/jPlayer/dist/skin/blue.monday/image/**',
-        ])
-        .pipe(rsync({
-            incremental: true,
-            progress: true,
-            root: dev_dir,
-            destination: dest_dir+'/image',
-            relative: false
-        }));
-});
 
 gulp.task('rsync-fonts', ['rsync-media'], function() {
     return gulp.src([
@@ -78,7 +68,8 @@ gulp.task('rsync-fonts', ['rsync-media'], function() {
  */
 gulp.task('html-replace', ['sass-compile', 'rsync-media'], function() {
     return gulp.src([
-        dev_dir+'index.html'
+        dev_dir+'index.html',
+        dev_dir+'admin.html'
     ])
     .pipe(useref())
     .pipe(gulpif('*.css', csso()))
@@ -89,6 +80,7 @@ gulp.task('html-replace', ['sass-compile', 'rsync-media'], function() {
 gulp.task('html-minify', ['html-replace'], function() {
     return gulp.src([
         dest_dir+'index.html',
+        dev_dir+'admin.html',
         dev_dir+'**/_*.html'
     ])
     .pipe(htmlmin({collapseWhitespace: true, removeComments: true}))
@@ -102,7 +94,6 @@ gulp.task('html-minify', ['html-replace'], function() {
 gulp.task('default', [
     'rsync-fonts',
     'rsync-media',
-    'rsync-jplayer-skin',
     'sass-compile',
     'html-replace',
     'html-minify'

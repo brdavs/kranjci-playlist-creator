@@ -1,0 +1,54 @@
+/* -----------------------------------------------------------------------------
+ * SASS Theme Kranjci DJ app
+ * Copyright 2016 Toni Anzlovar, toni[at]formalibre.si
+ * ----------------------------------------------------------------------------- */
+/* Coolors Exported Palette - coolors.co/2d3142-4f5d75-bfc0c0-ffffff-ef8354 */
+html, button, input, select, textarea, .pure-g [class*="pure-u"] {
+  font-family: Verdana, Geneva, Tahoma, sans-serif; }
+
+.c1 {
+  border-right: 1px solid black; }
+
+.c2 {
+  text-align: center;
+  padding: 2rem; }
+
+.c1, .c2 {
+  box-sizing: border-box;
+  height: 100vh;
+  overflow-y: scroll;
+  overflow-x: hidden; }
+
+.songlist {
+  margin: 0 0 0 0;
+  padding: 0 0 0 0; }
+  .songlist h3 {
+    margin: 0 0 0 0;
+    padding: 0 0 0 0; }
+  .songlist li {
+    padding: 1rem;
+    border-bottom: 1px solid black; }
+
+.button-success,
+.button-error,
+.button-warning,
+.button-secondary {
+  color: white;
+  border-radius: 4px;
+  text-shadow: 0 1px 1px rgba(0, 0, 0, 0.2); }
+
+.button-success {
+  background: #1cb841;
+  /* this is a green */ }
+
+.button-error {
+  background: #ca3c3c;
+  /* this is a maroon */ }
+
+.button-warning {
+  background: #df7514;
+  /* this is an orange */ }
+
+.button-secondary {
+  background: #42b8dd;
+  /* this is a light blue */ }

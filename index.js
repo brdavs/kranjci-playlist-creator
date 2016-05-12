@@ -2,10 +2,13 @@ var connect = require('connect');
 var serveStatic = require('serve-static');
 var dirTree = require('directory-tree');
 var fs = require('fs');
+// var ClientOAuth2 = require('client-oauth2')
 
 var app = connect();
 var p = [8000, 8001, 8002];
 
+var dirlist =  __dirname + '/src/media/dirlist.json';
+var dirlist_dest =  __dirname + '/dest/media/dirlist.json';
 var mp3path = __dirname + '/mp3';
 var playlist_path = __dirname + '/mp3/playlist.m3u';
 
@@ -17,16 +20,18 @@ var playlist_path = __dirname + '/mp3/playlist.m3u';
 app.use((req, res, next)=> {
     res.setHeader("Access-Control-Allow-Origin", "*");
     res.setHeader("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+    res.setHeader('Access-Control-Allow-Methods', 'POST, GET, PUT, DELETE, OPTIONS');
     next();
 });
 
 // mp3 list service
-var list = (req, res, next) => {
+app.use('/list', (req, res, next) => {
     var tree = dirTree(mp3path, ['.mp3']);
+    fs.writeFileSync(dirlist, JSON.stringify(tree));
+    fs.writeFileSync(dirlist_dest, JSON.stringify(tree));
     res.end(JSON.stringify(tree));
     next();
-}
-app.use('/list', list);
+});
 
 
 // Playlist service
@@ -85,12 +90,22 @@ var playlist = (req, res, next) => {
     }
 };
 app.use('/playlist', playlist);
+
+
+/*
+ * application server
+ */
+// development
+app.use(serveStatic(__dirname + '/dist'));
 app.listen(p[0]);
-console.log('Running: service on port ' + p[0] + '!');
+console.log('Running: app on port ' + p[0] + '!');
+
+
+
+
 
 /*
  * Serve static files
  */
 connect().use(serveStatic(__dirname + '/src')).listen(p[1]);
-connect().use(serveStatic(__dirname + '/dist')).listen(p[2]);
-console.log('Running: development on port ' + p[1] + ', distro on port ' + p[2] + '!');
+console.log('Running: development on port ' + p[1]);

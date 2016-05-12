@@ -1,5 +1,5 @@
 /* -----------------------------------------------------------------------------
- * SASS Theme for Ognjisce media player
+ * SASS Theme Kranjci DJ app
  * Copyright 2016 Toni Anzlovar, toni[at]formalibre.si
  * ----------------------------------------------------------------------------- */
 /* Coolors Exported Palette - coolors.co/2d3142-4f5d75-bfc0c0-ffffff-ef8354 */
@@ -34,9 +34,9 @@ body {
 
 .dirlist {
   height: 100%; }
-  .dirlist .pure-g {
+  .dirlist > .pure-g {
     height: 90%; }
-    .dirlist .pure-g div:first-child, .dirlist .pure-g div:last-child {
+    .dirlist > .pure-g > div:first-child, .dirlist > .pure-g > div:last-child {
       height: 100%;
       overflow-y: scroll;
       overflow-x: hidden; }
@@ -49,20 +49,20 @@ body {
   background-image: url("/img/kranjci-logo.svg");
   background-position: 1em 70%;
   background-repeat: no-repeat;
-  box-shadow: 0 5px 30px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 5px 30px rgba(0, 0, 0, 0.3);
   z-index: 1; }
   #header form {
     display: inline-block;
     float: right;
     padding: 1rem 1rem 0 0; }
 
-.dirlist .pure-g div:first-child {
+.dirlist > .pure-g > div:first-child {
   box-sizing: border-box;
   border-right: 1px solid rgba(255, 255, 255, 0.15); }
 
 .dirlist {
   background-image: url("/img/dj.jpg");
-  background-size: auto 100%;
+  background-size: auto 110%;
   background-position: center bottom;
   background-repeat: no-repeat; }
 
@@ -76,23 +76,20 @@ body {
     margin: 0 0 0 0;
     padding: 0 0 0 0;
     border: none; }
-  .k-list li {
-    border-top: 1px solid rgba(255, 255, 255, 0.15); }
-    .k-list li > span {
-      display: block;
-      font-size: 1.2rem;
-      padding: 0.8rem; }
-      .k-list li > span span {
-        color: #ef8354; }
-        .k-list li > span span.name {
-          color: #ffffff; }
-        .k-list li > span span.arrow {
-          float: right;
-          padding-top: 0.25rem; }
-    .k-list li li {
-      padding-left: 2em; }
-  .k-list > li {
+  .k-list li > span {
+    display: block;
+    font-size: 1.2rem;
+    padding: 0.8rem;
     border-bottom: 1px solid rgba(255, 255, 255, 0.15); }
+    .k-list li > span span {
+      color: #ef8354; }
+      .k-list li > span span.name {
+        color: #ffffff; }
+      .k-list li > span span.arrow {
+        float: right;
+        padding-top: 0.25rem; }
+  .k-list li li {
+    padding-left: 2em; }
 
 .k-songs {
   color: #ffffff;
@@ -100,10 +97,32 @@ body {
   padding: 0 0 0 0;
   list-style: none; }
   .k-songs li {
-    border-top: 1px solid rgba(0, 0, 0, 0.15); }
-    .k-songs li > span {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.15); }
+    .k-songs li > div {
       display: block;
       font-size: 1.2rem;
       padding: 0.8rem; }
-      .k-songs li > span .ok {
+      .k-songs li > div .ok {
         color: #ef8354; }
+
+.search-result {
+  position: absolute;
+  width: 70vw;
+  height: 70vh;
+  left: 15vw;
+  top: 15vh;
+  background: rgba(0, 0, 0, 0.8);
+  border: 1px solid #ffffff; }
+
+.song {
+  color: #ffffff;
+  width: 100%; }
+  .song h4 {
+    margin: 0 0 0 0;
+    padding: 0 0 0 0; }
+  .song img.singer-image {
+    display: block;
+    width: 100%; }
+  .song .panel {
+    width: 100%;
+    padding: 0 0 0 1rem; }

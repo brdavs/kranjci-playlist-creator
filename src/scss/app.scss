@@ -1,5 +1,5 @@
 /* -----------------------------------------------------------------------------
- * SASS Theme for Ognjisce media player
+ * SASS Theme Kranjci DJ app
  * Copyright 2016 Toni Anzlovar, toni[at]formalibre.si
  * ----------------------------------------------------------------------------- */
 @import "../bower_components/bourbon/app/assets/stylesheets/bourbon";
@@ -35,9 +35,9 @@ a {
 body { height: 100vh; }
 .dirlist { 
   height: 100%; 
-  .pure-g {
+  > .pure-g {
     height: 90%;
-    div:first-child, div:last-child {
+    > div:first-child, > div:last-child {
       height: 100%;
       overflow-y : scroll;
       overflow-x : hidden;
@@ -55,7 +55,7 @@ body { height: 100vh; }
   background-image: url('/img/kranjci-logo.svg');
   background-position: 1em 70%;
   background-repeat: no-repeat;
-  box-shadow: 0 5px 30px rgba(0,0,0,0.1);
+  box-shadow: 0 5px 30px rgba(0,0,0,0.3);
   z-index: 1;
   form {
     display: inline-block;
@@ -65,13 +65,13 @@ body { height: 100vh; }
 }
 
 
-.dirlist .pure-g div:first-child,  {
+.dirlist > .pure-g > div:first-child,  {
   box-sizing: border-box;
   border-right: 1px solid rgba(255,255,255,0.15);
 }
 .dirlist {
   background-image: url('/img/dj.jpg');
-  background-size: auto 100%;
+  background-size: auto 110%;
   background-position: center bottom;
   background-repeat: no-repeat;
 }
@@ -79,9 +79,8 @@ body { height: 100vh; }
 .k-list {
   list-style: none;
   color: $color4;
-  // background-color: $color2;
-  
   @include n;
+  
   ul {
     list-style: none;
     @include n; 
@@ -90,11 +89,11 @@ body { height: 100vh; }
   
   $indent: 1em;
   li {
-    border-top: 1px solid rgba(255,255,255,.15);
     > span {
       display: block;
       font-size: 1.2rem;
       padding: 0.8rem;
+      border-bottom: 1px solid rgba(255,255,255,.15);
       span {
         color: $color5;
         &.name {
@@ -110,9 +109,6 @@ body { height: 100vh; }
       padding-left: 2*$indent;
     }
   }
-  > li {
-    border-bottom: 1px solid rgba(255,255,255,.15);
-  }
 }
 
 
@@ -122,8 +118,8 @@ body { height: 100vh; }
   @include n;
   list-style: none;
   li {
-    border-top: 1px solid rgba(0,0,0,0.15);
-    > span {
+    border-bottom: 1px solid rgba(255,255,255,0.15);
+    > div {
       display: block;
       font-size: 1.2rem;
       padding: 0.8rem;
@@ -132,5 +128,34 @@ body { height: 100vh; }
         color: $color5;
       }
     }
+  }
+}
+
+
+
+.search-result {
+  position: absolute;
+  width: 70vw;
+  height: 70vh;
+  left: 15vw;
+  top: 15vh;
+  background: rgba(0,0,0,0.80);
+  border: 1px solid $color4;
+  
+}
+
+.song {
+  color: $color4;
+  width: 100%;
+  h4 {
+    @include n;
+  }
+  img.singer-image {
+    display: block;
+    width: 100%;
+  }
+  .panel {
+    width: 100%;
+    padding: 0 0 0 1rem;
   }
 }

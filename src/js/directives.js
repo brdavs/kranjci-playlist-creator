@@ -14,7 +14,7 @@
         //
         // Creates:
         //
-        var list_url = 'http://' + $location.$$host + ':8000/list';
+        var list_url = 'http://' + $location.$$host + ':8001/media/dirlist.json';
         var playlist_url = 'http://' + $location.$$host + ':8000/playlist';
 
         var directive = {
@@ -41,7 +41,6 @@
             $http.get(list_url).then(function (res) {
                 scope.list = res.data;
                 scope.items = scope.list.children;
-                scope.current_items = scope.list.children;
             });
 
             $http.get(playlist_url).then(function (res) {
@@ -56,9 +55,6 @@
                     song: item[1] ? item[1].trim() : item[0].trim(),
                 }
             }
-            
-            // Search list
-            //scope.search_list = search_list;
 
             scope.chdir = function (item) {
                 scope.current_items = item.children;
@@ -74,7 +70,6 @@
                 } else {
                     scope.playlist.splice(position, 1);
                 }
-                console.log(scope.playlist)
 
                 $http.post(playlist_url, scope.playlist).then(function (res) {
                     if (res.data.response != true) scope.playlist = [];

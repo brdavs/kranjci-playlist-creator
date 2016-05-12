@@ -1,0 +1,60 @@
+/* -----------------------------------------------------------------------------
+ * SASS Theme Kranjci DJ app
+ * Copyright 2016 Toni Anzlovar, toni[at]formalibre.si
+ * ----------------------------------------------------------------------------- */
+@import "../bower_components/bourbon/app/assets/stylesheets/bourbon";
+@import "common";
+@import "defaults";
+
+
+.c1 {
+    border-right: 1px solid black;
+}
+.c2 {
+    text-align: center;
+    padding: 2rem;
+}
+.c1, .c2 {  
+    box-sizing: border-box;
+    height: 100vh;
+    overflow-y : scroll;
+    overflow-x : hidden;
+}
+
+.songlist {
+    @include n;
+    h3 {
+        @include n;
+    }
+    li {
+        padding: 1rem;
+        border-bottom: 1px solid black;
+    }
+    
+}
+
+
+.button-success,
+.button-error,
+.button-warning,
+.button-secondary {
+    color: white;
+    border-radius: 4px;
+    text-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
+}
+
+.button-success {
+    background: rgb(28, 184, 65); /* this is a green */
+}
+
+.button-error {
+    background: rgb(202, 60, 60); /* this is a maroon */
+}
+
+.button-warning {
+    background: rgb(223, 117, 20); /* this is an orange */
+}
+
+.button-secondary {
+    background: rgb(66, 184, 221); /* this is a light blue */
+}
