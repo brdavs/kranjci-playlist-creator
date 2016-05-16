@@ -142,6 +142,12 @@ body { height: 100vh; }
   background: rgba(0,0,0,0.80);
   border: 1px solid $color4;
   
+  .close {
+    position: absolute;
+    right: 0;
+    padding: 1rem;
+    color: $color5;
+  }
 }
 
 .song {

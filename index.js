@@ -8,7 +8,7 @@ var app = connect();
 var p = [8000, 8001, 8002];
 
 var dirlist =  __dirname + '/src/media/dirlist.json';
-var dirlist_dest =  __dirname + '/dest/media/dirlist.json';
+var dirlist_dest =  __dirname + '/src/media/dirlist.json';
 var mp3path = __dirname + '/mp3';
 var playlist_path = __dirname + '/mp3/playlist.m3u';
 

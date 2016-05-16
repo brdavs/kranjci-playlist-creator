@@ -113,6 +113,11 @@ body {
   top: 15vh;
   background: rgba(0, 0, 0, 0.8);
   border: 1px solid #ffffff; }
+  .search-result .close {
+    position: absolute;
+    right: 0;
+    padding: 1rem;
+    color: #ef8354; }
 
 .song {
   color: #ffffff;

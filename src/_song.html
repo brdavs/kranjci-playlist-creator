@@ -1,16 +1,17 @@
 <div class="pure-g">
-    <div class="pure-u-3-24">
+    <!--<div class="pure-u-3-24">
         <img class="singer-image" src="http://placekitten.com/300/300" alt="Kitten">
+    </div>-->
+    <div class="pure-u-3-24">
+        <div class="panel">
+            <div class="ok fa fa-3x" ng-class="playlist.indexOf(item.path)>-1 ? 'fa-check-circle' : ''"></div>
+        </div>
     </div>
-    <div class="pure-u-13-24">
+    <div class="pure-u-12-24">
         <div class="panel">
             <div class="singer">{{extract(item.name).singer}} :</div>
             <h4 class="title">{{extract(item.name).song}}</h4>
         </div>
     </div>
-    <div class="pure-u-8-24">
-        <div class="panel">
-            <div class="ok fa fa-3x" ng-class="playlist.indexOf(item.path)>-1 ? 'fa-check-circle' : ''"></div>
-        </div>
-    </div>
+
 </div>
