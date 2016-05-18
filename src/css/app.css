@@ -112,10 +112,12 @@ body {
   left: 15vw;
   top: 15vh;
   background: rgba(0, 0, 0, 0.8);
-  border: 1px solid #ffffff; }
+  border: 1px solid #ffffff;
+  overflow-y: scroll;
+  overflow-x: hidden; }
   .search-result .close {
-    position: absolute;
-    right: 0;
+    position: fixed;
+    left: 80vw;
     padding: 1rem;
     color: #ef8354; }
 

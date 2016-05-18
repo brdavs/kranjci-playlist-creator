@@ -141,10 +141,12 @@ body { height: 100vh; }
   top: 15vh;
   background: rgba(0,0,0,0.80);
   border: 1px solid $color4;
+  overflow-y : scroll;
+  overflow-x : hidden;
   
   .close {
-    position: absolute;
-    right: 0;
+    position: fixed;
+    left: 80vw;
     padding: 1rem;
     color: $color5;
   }

@@ -2,15 +2,24 @@ var connect = require('connect');
 var serveStatic = require('serve-static');
 var dirTree = require('directory-tree');
 var fs = require('fs');
+var conf = require('./index_config.json');
 // var ClientOAuth2 = require('client-oauth2')
+
+// console.log(request.headers.host);
 
 var app = connect();
 var p = [8000, 8001, 8002];
 
-var dirlist =  __dirname + '/src/media/dirlist.json';
-var dirlist_dest =  __dirname + '/src/media/dirlist.json';
-var mp3path = __dirname + '/mp3';
-var playlist_path = __dirname + '/mp3/playlist.m3u';
+var user = 'toni';
+
+/*
+ * Vars
+ */
+
+var dirlist =  __dirname + conf[user].dirlist;
+var dirlist_dest =  __dirname + conf[user].dirlist_dest;
+var mp3path = __dirname + conf[user].mp3path;
+var playlist_path = __dirname + conf[user].playlist_path;
 
 /*
  * Services
@@ -99,8 +108,6 @@ app.use('/playlist', playlist);
 app.use(serveStatic(__dirname + '/dist'));
 app.listen(p[0]);
 console.log('Running: app on port ' + p[0] + '!');
-
-
 
 
 
