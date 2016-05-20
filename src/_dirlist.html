@@ -7,7 +7,7 @@
              &nbsp; <span class="name">{{item.name}}</span>
              <span class="arrow fa""></span>
         </span>
-        <ul ng-include="'ul.html'" ng-init="items=item.children; level=level+1" Xng-class="level>0 ? 'hidden' : ''" class="hidden"></ul>
+        <ul ng-include="'ul.html'" ng-init="items=item.children; level=level+1" ng-class="level>0 ? 'hidden' : ''" class="hidden"></ul>
     </li>
 </script>
 

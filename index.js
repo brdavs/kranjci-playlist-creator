@@ -10,7 +10,9 @@ var conf = require('./index_config.json');
 var app = connect();
 var p = [8000, 8001, 8002];
 
-var user = 'toni';
+var user = process.env.USER || 'toni';
+
+console.log(user)
 
 /*
  * Vars

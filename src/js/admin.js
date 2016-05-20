@@ -66,7 +66,7 @@ angular.element(document).ready(function() {
                 });
             }
             
-            var interval = setInterval(scope.get_list, 1000);
+            var interval = setInterval(scope.get_list, 2000);
             
         }
     }

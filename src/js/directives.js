@@ -42,10 +42,16 @@
                 scope.list = res.data;
                 scope.items = scope.list.children;
             });
-
-            $http.get(playlist_url).then(function (res) {
-                scope.playlist = res.data.split("\n");
-            });
+            
+            // Getting the list and prepare it for render
+            scope.get_list = function() {
+                $http.get(playlist_url).then(function (res) {
+                    scope.playlist = res.data.split("\n");
+                });
+            }
+            var interval = setInterval(scope.get_list, 2000);
+            
+            
 
             // Extract name of singer and song from filename
             scope.extract = function (item) {

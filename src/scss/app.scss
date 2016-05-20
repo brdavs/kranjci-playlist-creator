@@ -9,161 +9,169 @@
 
 
 body {
-  @include n;
+    @include n;
 }
 
 
 .hidden {
-  display: none;
+    display: none;
 }
 
 .link {
-  cursor: pointer;
+    cursor: pointer;
 }
 
 a {
-  cursor: pointer;
-  @include transition(0.8s);
-  &:hover {
-    text-decoration: none;
-    @include transition(0.2s);
-  }
+    cursor: pointer;
+    @include transition(0.8s);
+    &:hover {
+        text-decoration: none;
+        @include transition(0.2s);
+    }
 }
 
 // 100% height hack ------------------------------------------------------------
 
 body { height: 100vh; }
 .dirlist { 
-  height: 100%; 
-  > .pure-g {
-    height: 90%;
-    > div:first-child, > div:last-child {
-      height: 100%;
-      overflow-y : scroll;
-      overflow-x : hidden;
+    height: 100%; 
+    > .pure-g {
+        height: 90%;
+        > div:first-child, > div:last-child {
+            height: 100%;
+            overflow-y : scroll;
+            overflow-x : hidden;
+        }
     }
-  }
 }
 
 // -----------------------------------------------------------------------------
 
 #header {
-  position: relative;
-  vertical-align: middle;
-  height: 10vh;
-  background-color: $color4;
-  background-image: url('/img/kranjci-logo.svg');
-  background-position: 1em 70%;
-  background-repeat: no-repeat;
-  box-shadow: 0 5px 30px rgba(0,0,0,0.3);
-  z-index: 1;
-  form {
-    display: inline-block;
-    float: right;
-    padding: 1rem 1rem 0 0;
-  }
+    position: relative;
+    vertical-align: middle;
+    height: 10vh;
+    background-color: $color4;
+    background-image: url('/img/kranjci-logo.svg');
+    background-position: 1em 70%;
+    background-repeat: no-repeat;
+    box-shadow: 0 5px 30px rgba(0,0,0,0.3);
+    z-index: 1;
+    form {
+        display: inline-block;
+        float: right;
+        padding: 1rem 1rem 0 0;
+    }
 }
 
 
-.dirlist > .pure-g > div:first-child,  {
-  box-sizing: border-box;
-  border-right: 1px solid rgba(255,255,255,0.15);
+.dirlist > .pure-g > div:first-child,    {
+    box-sizing: border-box;
+    border-right: 1px solid rgba(255,255,255,0.15);
 }
 .dirlist {
-  background-image: url('/img/dj.jpg');
-  background-size: auto 110%;
-  background-position: center bottom;
-  background-repeat: no-repeat;
+    background-image: url('/img/dj.jpg');
+    background-size: auto 110%;
+    background-position: center bottom;
+    background-repeat: no-repeat;
 }
 
 .k-list {
-  list-style: none;
-  color: $color4;
-  @include n;
-  
-  ul {
     list-style: none;
-    @include n; 
-    border: none;
-  }
-  
-  $indent: 1em;
-  li {
-    > span {
-      display: block;
-      font-size: 1.2rem;
-      padding: 0.8rem;
-      border-bottom: 1px solid rgba(255,255,255,.15);
-      span {
-        color: $color5;
-        &.name {
-          color: $color4;
-        }
-        &.arrow {
-          float: right;
-          padding-top: 0.25rem;
-        }
-      }
+    color: $color4;
+    @include n;
+    
+    ul {
+        list-style: none;
+        @include n; 
+        border: none;
     }
+    
+    $indent: 1em;
     li {
-      padding-left: 2*$indent;
+        > span {
+            display: block;
+            font-size: 1.2rem;
+            padding: 0.8rem;
+            border-bottom: 1px solid rgba(255,255,255,.15);
+            span {
+                color: $color5;
+                &.name {
+                    color: $color4;
+                }
+                &.arrow {
+                    float: right;
+                    padding-top: 0.25rem;
+                }
+            }
+        }
+        li {
+            padding-left: 2*$indent;
+        }
     }
-  }
 }
 
 
 
 .k-songs {
-  color: $color4;
-  @include n;
-  list-style: none;
-  li {
-    border-bottom: 1px solid rgba(255,255,255,0.15);
-    > div {
-      display: block;
-      font-size: 1.2rem;
-      padding: 0.8rem;
-      
-      .ok {
-        color: $color5;
-      }
+    color: $color4;
+    @include n;
+    list-style: none;
+    li {
+        border-bottom: 1px solid rgba(255,255,255,0.15);
+        > div {
+            display: block;
+            font-size: 1.2rem;
+            padding: 0.8rem;
+            
+            .ok {
+                color: $color5;
+            }
+        }
     }
-  }
 }
 
 
 
 .search-result {
-  position: absolute;
-  width: 70vw;
-  height: 70vh;
-  left: 15vw;
-  top: 15vh;
-  background: rgba(0,0,0,0.80);
-  border: 1px solid $color4;
-  overflow-y : scroll;
-  overflow-x : hidden;
-  
-  .close {
-    position: fixed;
-    left: 80vw;
-    padding: 1rem;
-    color: $color5;
-  }
+    position: absolute;
+    width: 70vw;
+    height: 70vh;
+    left: 15vw;
+    top: 15vh;
+    background: rgba(0,0,0,0.80);
+    border: 1px solid $color4;
+
+    
+    .content {
+        position: absolute;
+        width:100%;
+        height: 100%;
+        overflow-y : scroll;
+        overflow-x : hidden;
+    }
+    
+    .close {
+        position: relative;
+        display: inline;
+        float: right;
+        padding: 1rem 1.5rem;
+        color: $color5;
+    }
 }
 
 .song {
-  color: $color4;
-  width: 100%;
-  h4 {
-    @include n;
-  }
-  img.singer-image {
-    display: block;
+    color: $color4;
     width: 100%;
-  }
-  .panel {
-    width: 100%;
-    padding: 0 0 0 1rem;
-  }
+    h4 {
+        @include n;
+    }
+    img.singer-image {
+        display: block;
+        width: 100%;
+    }
+    .panel {
+        width: 100%;
+        padding: 0 0 0 1rem;
+    }
 }
