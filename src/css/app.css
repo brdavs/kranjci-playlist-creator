@@ -124,7 +124,8 @@ body {
     display: inline;
     float: right;
     padding: 1rem 1.5rem;
-    color: #ef8354; }
+    color: #ef8354;
+    z-index: 1; }
 
 .song {
   color: #ffffff;
