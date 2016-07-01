@@ -2,7 +2,7 @@ var connect = require('connect');
 var serveStatic = require('serve-static');
 var dirTree = require('directory-tree');
 var fs = require('fs');
-var conf = require('./index_config.json');
+var conf = require('./config.json');
 // var ClientOAuth2 = require('client-oauth2')
 
 // console.log(request.headers.host);
@@ -18,10 +18,13 @@ console.log(user)
  * Vars
  */
 
-var dirlist =  __dirname + conf[user].dirlist;
-var dirlist_dest =  __dirname + conf[user].dirlist_dest;
-var mp3path = __dirname + conf[user].mp3path;
-var playlist_path = __dirname + conf[user].playlist_path;
+console.log(__dirname);
+
+var dirlist =  [__dirname, conf[user].dirlist].join('/');
+var mp3path = [__dirname, conf[user].mp3path].join('/');
+var playlist_path = [__dirname, conf[user].playlist_path].join('/');
+
+
 
 /*
  * Services
@@ -39,7 +42,6 @@ app.use((req, res, next)=> {
 app.use('/list', (req, res, next) => {
     var tree = dirTree(mp3path, ['.mp3']);
     fs.writeFileSync(dirlist, JSON.stringify(tree));
-    fs.writeFileSync(dirlist_dest, JSON.stringify(tree));
     res.end(JSON.stringify(tree));
     next();
 });
@@ -106,8 +108,8 @@ app.use('/playlist', playlist);
 /*
  * application server
  */
-// development
-app.use(serveStatic(__dirname + '/dist'));
+
+app.use(serveStatic(__dirname + '/src'));
 app.listen(p[0]);
 console.log('Running: app on port ' + p[0] + '!');
 
@@ -116,5 +118,5 @@ console.log('Running: app on port ' + p[0] + '!');
 /*
  * Serve static files
  */
-connect().use(serveStatic(__dirname + '/src')).listen(p[1]);
+connect().use(serveStatic(__dirname + '/dist')).listen(p[1]);
 console.log('Running: development on port ' + p[1]);

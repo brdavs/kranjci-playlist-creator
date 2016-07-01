@@ -14,7 +14,7 @@
         //
         // Creates:
         //
-        var list_url = 'http://' + $location.$$host + ':8001/media/dirlist.json';
+        var list_url = 'http://' + $location.$$host + ':8000/media/dirlist.json';
         var playlist_url = 'http://' + $location.$$host + ':8000/playlist';
 
         var directive = {
