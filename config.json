@@ -1,13 +1,13 @@
 {
     "toni": {
         "dirlist":  "src/media/dirlist.json",
-        "mp3path": "mp3",
-        "playlist_path": "mp3/playlist.m3u"
+        "mp3path": "../../../../media/toni/My Passport/Glasba",
+        "playlist_path": "playlist.m3u"
     },
     
     "martinorazem": {
         "dirlist":  "src/media/dirlist.json",
-        "mp3path": "mp3",
-        "playlist_path": "mp3/playlist.m3u"
+        "mp3path": "../../../Volumes/My Passport/Dj miki",
+        "playlist_path": "../playlist.m3u"
     }
 }

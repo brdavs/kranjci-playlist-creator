@@ -59,7 +59,7 @@ var playlist = (req, res, next) => {
     }
     
     // Fill up the playlist with data recieved
-    playlist = ''; req.on('data', (data) => { playlist += data; });
+    var playlist = ''; req.on('data', (data) => { playlist += data; });
     
     // get playlist function
     var get_playlist = () => {
@@ -74,7 +74,12 @@ var playlist = (req, res, next) => {
     // Save playlist function
     var save_playlist = () => {
         fs.exists(playlist_path, (exists) => {
-            playlist = exists ? JSON.parse(playlist).join("\n") : '';
+            if(exists) {
+                playlist = JSON.parse(playlist).filter((item)=>{
+                    return item=='' ? false : true;
+                }).join("\n");
+            }
+            //  playlist = exists ? JSON.parse(playlist).join("\n") : '';
             out = exists ? {response: true} : {response: false};
             fs.writeFile(playlist_path, playlist, (err) => {
                 if (err) throw err;
